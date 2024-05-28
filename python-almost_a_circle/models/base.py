@@ -16,7 +16,7 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
         '''Jsonifies a dictionary so it's quite rightly and longer.'''
@@ -31,7 +31,7 @@ class Base:
         if json_string is None or not json_string:
             return []
         return loads(json_string)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         '''Saves jsonified object to file.'''
@@ -39,7 +39,7 @@ class Base:
             list_objs = [o.to_dictionary() for o in list_objs]
         with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as f:
             f.write(cls.to_json_string(list_objs))
-    
+
     @classmethod
     def load_from_file(cls):
         '''Loads string from file and unjsonifies.'''
@@ -49,7 +49,7 @@ class Base:
             return []
         with open(file, "r", encoding="utf-8") as f:
             return [cls.create(**d) for d in cls.from_json_string(f.read())]
-    
+
     @classmethod
     def create(cls, **dictionary):
         '''Loads instance from dictionary.'''
@@ -63,7 +63,7 @@ class Base:
             new = None
         new.update(**dictionary)
         return new
-    
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         '''Saves object to csv file.'''
@@ -80,7 +80,7 @@ class Base:
                   encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerows(list_objs)
-    
+
     @classmethod
     def load_from_file_csv(cls):
         '''Loads object to csv file.'''
@@ -100,7 +100,7 @@ class Base:
                          "x": row[2], "y": row[3]}
                 ret.append(cls.create(**d))
         return ret
-    
+
     @staticmethod
     def draw(list_rectangles, list_squares):
         import turtle
