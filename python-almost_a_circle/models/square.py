@@ -36,4 +36,11 @@ class Square(Rectangle):
         if y is not None:
             self.y = y
     
+    def update(self, *args, **kwargs):
+        '''Updates instance attributes via no-keyword & keyword args.'''
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
+    
     
