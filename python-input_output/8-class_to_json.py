@@ -13,4 +13,3 @@ def class_to_json(obj):
     if hasattr(obj, "__dict__"):
         structure = obj.__dict__.copy()
     return structure
-    
