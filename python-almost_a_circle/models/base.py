@@ -80,7 +80,7 @@ class Base:
                   encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerows(list_objs)
-    
+
     @classmethod
     def load_from_file_csv(cls):
         '''Loads object to csv file.'''
