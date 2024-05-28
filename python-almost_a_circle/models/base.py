@@ -80,7 +80,7 @@ class Base:
                   encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerows(list_objs)
-
+    
     @classmethod
     def load_from_file_csv(cls):
         '''Loads object to csv file.'''
@@ -100,7 +100,7 @@ class Base:
                          "x": row[2], "y": row[3]}
                 ret.append(cls.create(**d))
         return ret
-
+    
     @staticmethod
     def draw(list_rectangles, list_squares):
         import turtle
